@@ -1,24 +1,52 @@
-// This is a place holder for the initial application state.
-const state = [
+var contentNode = 
 
-];
+class Reader extends React.Component {
+  constructor() {
+    super();
+  }
 
-// This grabs the DOM element to be used to mount React components.
-var contentNode = document.getElementById("contents");
+  render() {
+    return (<div>
+      The Reader component goes here.
+    </div>);
+  }
+}
 
-class MyComponent extends React.Component {
+class BookShelf extends React.Component {
+  constructor() {
+    super();
+  }
+
+  render() {
+    return (<div>
+      The BookShelf component goes here.
+    </div>);
+  }
+}
+
+class Login extends React.Component {
+  constructor() {
+    super();
+  }
+
+  render() {
+    return (<div>
+      The Login component goes here.
+    </div>);
+  }
+}
+
+class App extends React.Component {
   constructor() {
     super();
   }
 
   render() {
     return (
-      <div>
-        <h1>My View 01</h1>
-      </div>
+      <Login />
     );
   }
 }
 
 // This renders the JSX component inside the content node:
-ReactDOM.render(<MyComponent />, contentNode);
+ReactDOM.render(<App/>, document.getElementById("contents"));

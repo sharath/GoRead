@@ -8,40 +8,95 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// This is a place holder for the initial application state.
-var state = [];
+var contentNode = function (_React$Component) {
+  _inherits(Reader, _React$Component);
 
-// This grabs the DOM element to be used to mount React components.
-var contentNode = document.getElementById("contents");
+  function Reader() {
+    _classCallCheck(this, Reader);
 
-var MyComponent = function (_React$Component) {
-  _inherits(MyComponent, _React$Component);
-
-  function MyComponent() {
-    _classCallCheck(this, MyComponent);
-
-    return _possibleConstructorReturn(this, (MyComponent.__proto__ || Object.getPrototypeOf(MyComponent)).call(this));
+    return _possibleConstructorReturn(this, (Reader.__proto__ || Object.getPrototypeOf(Reader)).call(this));
   }
 
-  _createClass(MyComponent, [{
+  _createClass(Reader, [{
     key: "render",
     value: function render() {
       return React.createElement(
         "div",
         null,
-        React.createElement(
-          "h1",
-          null,
-          "My View 01"
-        )
+        "The Reader component goes here."
       );
     }
   }]);
 
-  return MyComponent;
+  return Reader;
+}(React.Component);
+
+var BookShelf = function (_React$Component2) {
+  _inherits(BookShelf, _React$Component2);
+
+  function BookShelf() {
+    _classCallCheck(this, BookShelf);
+
+    return _possibleConstructorReturn(this, (BookShelf.__proto__ || Object.getPrototypeOf(BookShelf)).call(this));
+  }
+
+  _createClass(BookShelf, [{
+    key: "render",
+    value: function render() {
+      return React.createElement(
+        "div",
+        null,
+        "The BookShelf component goes here."
+      );
+    }
+  }]);
+
+  return BookShelf;
+}(React.Component);
+
+var Login = function (_React$Component3) {
+  _inherits(Login, _React$Component3);
+
+  function Login() {
+    _classCallCheck(this, Login);
+
+    return _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this));
+  }
+
+  _createClass(Login, [{
+    key: "render",
+    value: function render() {
+      return React.createElement(
+        "div",
+        null,
+        "The Login component goes here."
+      );
+    }
+  }]);
+
+  return Login;
+}(React.Component);
+
+var App = function (_React$Component4) {
+  _inherits(App, _React$Component4);
+
+  function App() {
+    _classCallCheck(this, App);
+
+    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
+  }
+
+  _createClass(App, [{
+    key: "render",
+    value: function render() {
+      return React.createElement(Login, null);
+    }
+  }]);
+
+  return App;
 }(React.Component);
 
 // This renders the JSX component inside the content node:
 
 
-ReactDOM.render(React.createElement(MyComponent, null), contentNode);
+ReactDOM.render(React.createElement(App, null), document.getElementById("contents"));
