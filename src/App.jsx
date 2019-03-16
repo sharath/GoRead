@@ -29,16 +29,16 @@ class BookShelf extends React.Component {
 
 class Login extends React.Component {
   constructor() {
-    super();
+    this.routeChange = this.routeChange.bind(this);
+  }
+
+  routeChange() {
+    let path  = 'bookshelf';
+    this.props.history.push(path);
   }
 
   render() {
     
-    routeChange() {
-      let path  = 'bookshelf';
-      this.props.history.push(path);
-    }
-
     return (
       <div>
         The Login component goes here.
