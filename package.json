@@ -4,19 +4,25 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compile": "babel src --presets react,es2015 --out-dir static",
-    "watch": "babel src --presets react,es2015 --out-dir static --watch",
+    "compile": "babel src --presets react,es2015 --out-dir static & browserify static/App.js -o static/bundle.js",
+    "watch": "babel src --presets react,es2015 --out-dir static --watch & watchify static/App.js -o static/bundle.js & npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-router-dom": "^4.4.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.3.4",
     "babel-cli": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
-    "eslint": "^5.9.0"
+    "browserify": "^16.2.3",
+    "eslint": "^5.9.0",
+    "watchify": "^3.11.1"
   }
 }
