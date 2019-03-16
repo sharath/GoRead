@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 class Reader extends React.Component {
   constructor() {
@@ -28,13 +29,23 @@ class BookShelf extends React.Component {
 
 class Login extends React.Component {
   constructor() {
-    super();
+    this.routeChange = this.routeChange.bind(this);
+  }
+
+  routeChange() {
+    let path  = 'bookshelf';
+    this.props.history.push(path);
   }
 
   render() {
+    
     return (
       <div>
         The Login component goes here.
+        <h1>Login <br /> </h1>
+        <span>Username: <input type="text" id="username" />  <br /> </span>
+        <span>Password: <input type="password" id="password" /> <br /> </span>
+        <button onClick={this.routeChange()} > Go </button>
       </div>
     );
   }
