@@ -167,7 +167,7 @@ class Navigation extends React.Component {
     let navbar_login = (this.props.loggedin) ? 
     <React.Fragment>
     <Nav.Link href="/" disabled>{'Logged in as ' + this.props.user + ' '}</Nav.Link> 
-    <Nav.Link href="/" onClick={this.updateParentLogin.bind(this)}>Logout</Nav.Link>
+    <Nav.Link href="/" onClick={this.props.toggleLoginDetails}>Logout</Nav.Link>
     </React.Fragment> :
     <Nav.Link href="/">Login</Nav.Link>;
 
@@ -198,20 +198,22 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      'loggedin': true,
+      'loggedin': false,
       'user': 'GoRead User'
     }
+    this.toggleLogin = this.toggleLogin.bind(this);
   }
 
   toggleLogin() {
    // this.setState({'loggedin': false, 'user': 'GoRead User'})
-    this.setState((state) => ({'logggedin': !state.loggedin, 'user': state.user}))
+   // this.setState((state) => ({'logggedin': !state.loggedin, 'user': state.user}))
+    this.setState({'logggedin': !this.state.loggedin, 'user': this.state.user})
   }
 
   render() {
     return (
       <Router>
-        <Navigation user={this.state.user} loggedin={this.state.loggedin} toggleLoginDetails={this.toggleLogin.bind(this)}/>
+        <Navigation user={this.state.user} loggedin={this.state.loggedin} toggleLoginDetails={this.toggleLogin}/>
         <Switch>
         <Route exact path="/" component={ (this.state.loggedin) ? BookShelf : Login} />
         <Route path="/shelf" component={BookShelf} />
