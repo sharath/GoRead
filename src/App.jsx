@@ -149,6 +149,52 @@ class Login extends React.Component {
   }
 }
 
+class Settings extends React.Component {
+  constructor(props) {
+    super(props);
+    this.props = props;
+  }
+  render() {
+    
+    return (
+      <Container>
+     <Form>
+  <Form.Group controlId="exampleForm.ControlInput1">
+    <Form.Label>Change Email</Form.Label>
+    <Form.Control type="email" placeholder="name@example.com" />
+  </Form.Group>
+  <Form.Group controlId="exampleForm.ControlSelect1">
+    <Form.Label>Font Size</Form.Label>
+    <Form.Control as="select">
+      <option>10</option>
+      <option>12</option>
+      <option>14</option>
+      <option>16</option>
+      <option>18</option>
+    </Form.Control>
+  </Form.Group>
+  <Form.Group controlId="exampleForm.ControlSelect2">
+    <Form.Label>View Mode</Form.Label>
+    <Form.Control as="select" multiple>
+      <option>Day</option>
+      <option>Night</option>
+      <option>Color</option>
+    </Form.Control>
+  </Form.Group>
+  <Form.Group controlId="exampleForm.ControlTextarea1">
+    <Form.Label>Change Bio</Form.Label>
+    <Form.Control as="textarea" rows="3" />
+  </Form.Group>
+
+  <Button>
+    Save Changes
+  </Button>
+</Form>
+</Container>)
+  }
+
+}
+
 class Navigation extends React.Component {
   constructor(props) {
     super(props);
@@ -160,7 +206,13 @@ class Navigation extends React.Component {
   }
 
   render() {
-    let navbar_login = (this.props.loggedin) ? <Nav.Link href="/" disabled>{'Logged in as ' + this.props.user}</Nav.Link> : <Nav.Link href="/">Login</Nav.Link>;
+    let navbar_login = (this.props.loggedin) ? 
+    <React.Fragment>
+      <Nav.Link href="/" disabled>{'Logged in as ' + this.props.user}</Nav.Link>
+      <Nav.Link href="/settings">Settings</Nav.Link>
+</React.Fragment>
+     : 
+    <Nav.Link href="/">Login</Nav.Link>;
 
     return (
       <Navbar bg="dark" variant="dark">
@@ -189,7 +241,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      'loggedin': false,
+      'loggedin': true,
       'user': 'GoRead User'
     }
   }
@@ -201,6 +253,7 @@ class App extends React.Component {
         <Switch>
         <Route exact path="/" component={ (this.state.loggedin) ? BookShelf : Login} />
         <Route path="/shelf" component={BookShelf} />
+        <Route path="/settings" component={Settings} />
         <Route path="/reader/*" component={Reader} />
         <Route component={NoMatch} />
         </Switch>
