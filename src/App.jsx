@@ -205,10 +205,6 @@ class Navigation extends React.Component {
     return 1; // TODO: actually generate a random book id.
   }
 
-  // updateParentLogin() {
-  //   this.props.toggleLoginDetails
-  // }
-
   render() {
     let navbar_login = (this.props.loggedin) ? 
     <React.Fragment>
@@ -252,9 +248,6 @@ class App extends React.Component {
   }
 
   toggleLogin() {
-   // this.setState({'loggedin': false, 'user': 'GoRead User'})
-   // this.setState((state) => ({'logggedin': !state.loggedin, 'user': state.user}))
-    //this.setState({'logggedin': !this.state.loggedin})
     this.setState((prevState) => {
       return {'loggedin': !prevState.loggedin};
     })
