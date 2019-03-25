@@ -252,7 +252,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      'loggedin': true,
+      'loggedin': false,
       'user': 'GoRead User'
     }
     this.toggleLogin = this.toggleLogin.bind(this);
