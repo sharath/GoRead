@@ -36,6 +36,13 @@ class Reader extends React.Component {
   }
 
   render() {
+ 
+    const pStyle = {
+      
+      marginLeft: "100px",
+      marginRight: "100px",
+          };
+    
     let items = [];
     for (let i = 1; i <= this.pages.length; i++) {
       items.push(
@@ -45,13 +52,16 @@ class Reader extends React.Component {
       );
     }
 
+
     return (
       <Container>
       <ReaderPage data={this.pages} active={this.state.current}/>
-      <Pagination>{items}</Pagination>
-      </Container>);
+      <Container style={pStyle}>
+        <Pagination>{items}</Pagination>
+      </Container>
+      </Container>
+      );
   }
-}
 
 class BookShelf extends React.Component {
   constructor(props) {
