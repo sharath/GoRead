@@ -62,6 +62,7 @@ class Reader extends React.Component {
       </Container>
       );
   }
+}
 
 class BookShelf extends React.Component {
   constructor(props) {
