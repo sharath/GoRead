@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 
 // routes
 const books = require('./routes/api/books');
+const register = require('./routes/api/register');
 
 const app = express();
 app.use(bodyParser.json());
@@ -15,7 +16,7 @@ mongoose.connect(db, { useNewUrlParser: true })
 
 // use routes
 app.use('/api/books', books);
-
+app.use('/api/register', register);
 
 const port = process.env.PORT || 5000;
 
