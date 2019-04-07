@@ -1,29 +1,32 @@
 {
-  "name": "ch01",
+  "name": "goread",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "compile": "babel src --presets react,es2015 --out-dir static & browserify static/App.js -o static/bundle.js",
-    "watch": "babel src --presets react,es2015 --out-dir static --watch & watchify static/App.js -o static/bundle.js & npm start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "client-install": "npm install --prefix client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sharath/GoRead.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sharath/GoRead/issues"
+  },
+  "homepage": "https://github.com/sharath/GoRead#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
     "express": "^4.16.4",
-    "react": "^16.8.4",
-    "react-bootstrap": "^1.0.0-beta.5",
-    "react-dom": "^16.8.4",
-    "react-router-dom": "^4.4.0"
+    "mongoose": "^5.4.22"
   },
   "devDependencies": {
-    "@babel/core": "^7.3.4",
-    "babel-cli": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "browserify": "^16.2.3",
-    "eslint": "^5.9.0",
-    "watchify": "^3.11.1"
+    "nodemon": "^1.18.10"
   }
 }

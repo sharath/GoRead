@@ -1,13 +1,22 @@
 const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+
+// routes
+const books = require('./routes/api/books');
 
 const app = express();
+app.use(bodyParser.json());
 
-app.use(express.static('static'));
+const db = require('./config/keys').mongoURI;
+mongoose.connect(db, { useNewUrlParser: true })
+  .then(() => console.log('connected to mongodb'))
+  .catch(err => console.log(err));
 
-app.get('*', function(req, res) {
-    res.sendFile(__dirname + "/static/index.html");
-});
-  
-app.listen(3000, function () {
-    console.log('App started on port 3000');
-});
+// use routes
+app.use('/api/books', books);
+
+
+const port = process.env.PORT || 5000;
+
+app.listen(port, () => console.log(`Server started on port ${port}`));
