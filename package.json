@@ -20,15 +20,17 @@
   },
   "homepage": "https://github.com/sharath/GoRead#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "concurrently": "^4.1.0",
     "express": "^4.16.4",
     "mongoose": "^5.4.22",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-bootstrap": "^1.0.0-beta.6",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.0"
   },
   "devDependencies": {
-    "nodemon": "^1.18.10",
     "@babel/core": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
     "@babel/preset-react": "^7.0.0",
@@ -36,7 +38,10 @@
     "babel-loader": "^8.0.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "css-loader": "^2.1.1",
     "html-webpack-plugin": "^3.2.0",
+    "nodemon": "^1.18.10",
+    "style-loader": "^0.23.1",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.2.1"
