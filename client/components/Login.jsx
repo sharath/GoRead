@@ -34,7 +34,7 @@ export class Login extends React.Component {
                         <Form.Label>Password</Form.Label>
                         <Form.Control name="password" type="password" placeholder="Password" onChange={e => this.handleChange(e)} />
                     </Form.Group>
-                    <Button variant="primary" onClick={this.submit()}>Submit</Button>
+                    <Button variant="primary" onClick={this.submit()}>Login</Button>
                 </Form>
             </Container>
         );

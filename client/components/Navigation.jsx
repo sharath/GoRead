@@ -12,9 +12,7 @@ export class Navigation extends React.Component {
         let logged_in = this.props.username != "";
         let left_bar = (logged_in) ?
             <React.Fragment>
-                <Nav.Link as={Link} href="/" to="/">Home</Nav.Link>
                 <Nav.Link as={Link} href="/shelf/" to="/shelf/">Bookshelf</Nav.Link>
-                <Nav.Link as={Link} href="/users/" to="/users/">Users</Nav.Link>
             </React.Fragment> :
             <React.Fragment></React.Fragment>;
 
@@ -26,7 +24,7 @@ export class Navigation extends React.Component {
             </React.Fragment> :
             <React.Fragment>
                 <Nav.Link as={Link} href="/login/" to="/login/">Login</Nav.Link>
-                <Nav.Link>Register</Nav.Link>
+                <Nav.Link as={Link} href="/register/" to="/register/">Register</Nav.Link>
             </React.Fragment>;
 
         return (

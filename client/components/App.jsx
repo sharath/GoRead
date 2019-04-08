@@ -1,20 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import { Navigation } from './Navigation.jsx';
 import { Login } from './Login.jsx';
-import axios from 'axios';
-
-function Index() {
-    return <h2>Home</h2>;
-}
-
-function BookShelf() {
-    return <h2>BookShelf</h2>;
-}
-
-function Users() {
-    return <h2>Users</h2>;
-}
+import { Register } from './Register.jsx';
+import { Settings } from './Settings.jsx'
+import { NoMatch } from './NoMatch.jsx';
+import { BookShelf } from './BookShelf.jsx';
+import { Reader } from './Reader.jsx';
 
 class App extends React.Component {
     constructor(props) {
@@ -29,6 +21,11 @@ class App extends React.Component {
         this.setState({
             username: username
         });
+        this
+    }
+
+    register(username, password) {
+        console.log(username, password);
     }
 
     logout() {
@@ -38,24 +35,24 @@ class App extends React.Component {
     render() {
         let logged_in = this.state.username != "";
         let routes = (logged_in) ?
-            <React.Fragment>
-                <Route path="/" exact component={Index} />
-                <Route path="/shelf/" component={BookShelf} />
-                <Route path="/users/" component={Users} />
-                <Route path="/login/" component={Index} />
-            </React.Fragment> :
-            <React.Fragment>
-                <Route path="/" exact component={Index} />
-                <Route path="/shelf/" component={BookShelf} />
-                <Route path="/users/" component={Users} />
-                <Route path="/login/" component={() => <Login login={this.login.bind(this)} />} />
-            </React.Fragment>;
+            <Switch>
+                <Route path="/" exact component={BookShelf} />
+                <Route path="/shelf" component={BookShelf} />
+                <Route path="/login" component={BookShelf} />
+                <Route path="/settings" component={Settings} />
+                <Route path="/reader/:id" component={Reader} />
+                <Route component={NoMatch} />
+            </Switch> :
+            <Switch>
+                <Route path="/register" exact component={() => <Register register={this.register.bind(this)} />} />
+                <Route component={() => <Login login={this.login.bind(this)} />} />
+            </Switch>;
 
         return (
-            <Router>
+            <HashRouter basename="/">
                 <Navigation username={this.state.username} logout={this.logout.bind(this)} />
                 {routes}
-            </Router >
+            </HashRouter>
         );
     }
 }
