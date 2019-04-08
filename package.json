@@ -7,7 +7,8 @@
     "start-server": "nodemon server.js",
     "start-client": "webpack-dev-server --config webpack.config.js --mode development --open --hot",
     "dev": "concurrently \"npm run start-client\" \"npm run start-server\"",
-    "build-client": "webpack --mode production"
+    "build-client": "webpack --mode production",
+    "init-db": "mongo scripts/init.mongo.js"
   },
   "repository": {
     "type": "git",
@@ -46,5 +47,5 @@
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.2.1"
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "http://localhost:8080"
 }
