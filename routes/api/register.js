@@ -10,9 +10,8 @@ router.post('/', (req, res) => {
   user.save((err) => {
     if (err) return handleError(err);
   })
-
+  
   res.json({ message: 'successful'});
-  console.log('success');
 });
 
 
