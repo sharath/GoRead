@@ -15,9 +15,8 @@ export class BookShelf extends React.Component {
                 this.setState({ books: res.data });
             })
     }
-    
+
     render() {
-        console.log(this.state);
         return (
             <Container>
                 <ul className="list-unstyled">
@@ -38,7 +37,8 @@ export class BookShelf extends React.Component {
                         })
                     }
                 </ul>
-            </Container>);
+            </Container>
+        );
     }
 
 }

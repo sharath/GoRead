@@ -8,6 +8,8 @@ import { NoMatch } from './NoMatch.jsx';
 import { BookShelf } from './BookShelf.jsx';
 import { Reader } from './Reader.jsx';
 
+import axios from 'axios';
+
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -18,10 +20,20 @@ class App extends React.Component {
     }
 
     login(username, password) {
-        this.setState({
-            username: username
-        });
-        this
+        axios.post('/api/login', {
+            username: username,
+            password: password
+        }).then(res => {
+            if(res.data.message === 'authorized') {
+                this.setState({
+                    username: username
+                });
+            } else {
+                console.log('Invalid Credentials');
+            }
+        }).catch(err => {
+            console.log(err);
+        })
     }
 
     register(username, password) {

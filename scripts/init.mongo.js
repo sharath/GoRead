@@ -1,8 +1,8 @@
 db = new Mongo().getDB('GoRead');
 db.books.remove({});
-db.user.remove({});
+db.users.remove({});
 
-db.user.insert([
+db.users.insert([
     {
         username: 'goread',
         password: 'password'
