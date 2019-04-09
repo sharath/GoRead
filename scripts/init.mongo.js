@@ -8,7 +8,7 @@ db.users.insert([
         password: 'password',
         settings: {
             fontSize: 10,
-            viewMode: 'day'
+            viewMode: 'Day'
         }
     }
 ]);

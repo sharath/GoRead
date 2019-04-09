@@ -5,18 +5,29 @@ export class Settings extends React.Component {
     constructor(props) {
         super(props);
         this.props = props;
+        this.state = {
+            "view-mode": this.props.settings['view-mode'],
+            "font-size": this.props.settings['font-size'],
+        };
     }
+    
+    handleChange(e) {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
+    submit() {
+        return () => this.props.update_settings(this.state['view-mode'], this.state['font-size']);
+    }
+
     render() {
         return (
             <Container>
                 <Form>
-                    <Form.Group controlId="exampleForm.ControlInput1">
-                        <Form.Label>Change Password</Form.Label>
-                        <Form.Control type="password" placeholder="" />
-                    </Form.Group>
                     <Form.Group controlId="exampleForm.ControlSelect1">
                         <Form.Label>Font Size</Form.Label>
-                        <Form.Control as="select">
+                        <Form.Control as="select" name="font-size" onChange={e => this.handleChange(e)} defaultValue={this.state['font-size']}>
                             <option>10</option>
                             <option>12</option>
                             <option>14</option>
@@ -26,13 +37,12 @@ export class Settings extends React.Component {
                     </Form.Group>
                     <Form.Group controlId="exampleForm.ControlSelect2">
                         <Form.Label>View Mode</Form.Label>
-                        <Form.Control as="select" multiple>
+                        <Form.Control as="select" name="view-mode" onChange={e => this.handleChange(e)} defaultValue={this.state['view-mode']}>
                             <option>Day</option>
                             <option>Night</option>
-                            <option>Color</option>
                         </Form.Control>
                     </Form.Group>
-                    <Button>Save Changes</Button>
+                    <Button onClick={this.submit()}>Save Changes</Button>
                 </Form>
             </Container>
         );

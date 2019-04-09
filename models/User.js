@@ -7,7 +7,7 @@ const Settings = new Schema({
     default: 12,
     required: true,
   },
-  viewMode:{
+  viewMode: {
     type: String,
     default: 'day',
     require: true,

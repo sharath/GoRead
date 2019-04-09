@@ -32,9 +32,8 @@ router.post('/:ruser', (req, res) => {
 
     User.findOne({ username: ruser })
         .then((user) => {
-            console.log(user);
             if(user.username === ruser && user.settings.fontSize === rfontSize &&  user.settings.viewMode === rviewMode) { 
-                return res.json({ "status": "success" }) 
+                return res.json({ message: 'success' }) 
             } else {
                 return res.json({ message: 'failure' });
             }

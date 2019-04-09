@@ -15,7 +15,8 @@ class App extends React.Component {
         super(props);
         this.props = props;
         this.state = {
-            username: ''
+            username: '',
+            settings: {},
         };
     }
 
@@ -24,9 +25,10 @@ class App extends React.Component {
             username: username,
             password: password
         }).then(res => {
-            if(res.data.message === 'authorized') {
+            if (res.data.message === 'authorized') {
                 this.setState({
-                    username: username
+                    username: username,
+                    settings: res.data.settings,
                 });
             } else {
                 console.log('Invalid Credentials');
@@ -41,7 +43,19 @@ class App extends React.Component {
     }
 
     logout() {
-        this.setState({ username: '' });
+        this.setState({ username: '', settings: {} });
+    }
+
+    update_settings(viewMode, fontSize) {
+        this.setState({ settings: { "view-mode": viewMode, "font-size": fontSize } });
+        axios.post(`/api/settings/${this.state.username}`, {
+            'font-size': fontSize,
+            'view-mode': viewMode,
+        }).then(res => {
+            if (res.data.message === 'success') {
+                console.log('success')
+            }
+        })
     }
 
     render() {
@@ -51,7 +65,7 @@ class App extends React.Component {
                 <Route path="/" exact component={BookShelf} />
                 <Route path="/shelf" component={BookShelf} />
                 <Route path="/login" component={BookShelf} />
-                <Route path="/settings" component={Settings} />
+                <Route path="/settings" component={() => <Settings update_settings={this.update_settings.bind(this)} username={this.state.username} settings={this.state.settings} />} />
                 <Route path="/reader/:id" component={Reader} />
                 <Route component={NoMatch} />
             </Switch> :

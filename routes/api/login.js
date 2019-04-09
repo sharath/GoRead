@@ -9,12 +9,12 @@ router.post('/', (req, res) => {
 
     User.findOne({ username: ruser })
         .then((user) => {
-            if(user.username === ruser && user.password === rpass) {
-                res.json({message: 'authorized'});
+            if (user.username === ruser && user.password === rpass) {
+                res.json({ message: 'authorized', settings: { "view-mode": user.settings.viewMode, "font-size": user.settings.fontSize } });
             } else {
-                res.json({message: 'unauthorized'});
+                res.json({ message: 'unauthorized' });
             }
-        }).catch((err) => res.json({message: 'unauthorized'}));
+        }).catch((err) => res.json({ message: 'unauthorized' }));
 });
 
 module.exports = router;
