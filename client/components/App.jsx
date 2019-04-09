@@ -39,7 +39,20 @@ class App extends React.Component {
     }
 
     register(username, password) {
-        console.log(username, password);
+        axios.post('/api/register', {
+            username: username,
+            password: password
+        }).then(res => {
+            if(res.data.message === 'successful') {
+                this.setState({
+                    username: username
+                });
+            } else {
+                console.log('Invalid Credentials');
+            }
+        }).catch(err => {
+            console.log(err);
+        })
     }
 
     logout() {
