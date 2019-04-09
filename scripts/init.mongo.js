@@ -5,7 +5,11 @@ db.users.remove({});
 db.users.insert([
     {
         username: 'goread',
-        password: 'password'
+        password: 'password',
+        settings: {
+            fontSize: 10,
+            viewMode: 'day'
+        }
     }
 ]);
 

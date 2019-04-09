@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const books = require('./routes/api/books');
 const register = require('./routes/api/register');
 const login = require('./routes/api/login');
+const settings = require('./routes/api/settings');
 
 const app = express();
 app.use(bodyParser.json());
@@ -19,6 +20,7 @@ mongoose.connect(db, { useNewUrlParser: true })
 app.use('/api/books', books);
 app.use('/api/register', register);
 app.use('/api/login', login);
+app.use('/api/settings', settings);
 
 const port = process.env.PORT || 5000;
 

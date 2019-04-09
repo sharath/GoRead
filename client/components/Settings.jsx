@@ -11,8 +11,8 @@ export class Settings extends React.Component {
             <Container>
                 <Form>
                     <Form.Group controlId="exampleForm.ControlInput1">
-                        <Form.Label>Change Email</Form.Label>
-                        <Form.Control type="email" placeholder="name@example.com" />
+                        <Form.Label>Change Password</Form.Label>
+                        <Form.Control type="password" placeholder="" />
                     </Form.Group>
                     <Form.Group controlId="exampleForm.ControlSelect1">
                         <Form.Label>Font Size</Form.Label>

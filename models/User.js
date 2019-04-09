@@ -1,6 +1,17 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const Settings = new Schema({
+  fontSize: {
+    type: Number,
+    required: true,
+  },
+  viewMode:{
+    type: String,
+    require: true,
+  }
+});
+
 const UserSchema = new Schema({
   username: {
     type: String,
@@ -8,6 +19,10 @@ const UserSchema = new Schema({
   },
   password: {
     type: String,
+    required: true,
+  },
+  settings: {
+    type: Settings,
     required: true,
   }
 });
