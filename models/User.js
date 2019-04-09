@@ -4,10 +4,12 @@ const Schema = mongoose.Schema;
 const Settings = new Schema({
   fontSize: {
     type: Number,
+    default: 12,
     required: true,
   },
   viewMode:{
     type: String,
+    default: 'day',
     require: true,
   }
 });
