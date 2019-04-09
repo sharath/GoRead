@@ -13,5 +13,5 @@ GoRead is a book reader application built using the MERN (MongoDB, Express, Reac
 To use this application you should have `node` and `npm` installed and issue the following commands:
 
 1. `npm install`: this will install the required `node` libraries.
-2. `npm install -D`: flag synonym for --save-dev.
+2. `npm run init-db`: initializes MongoDB with mock data.
 3. `npm run dev`: this will start nodemon on the express server and webpack-dev-server on the react app.
