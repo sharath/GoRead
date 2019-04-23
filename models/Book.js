@@ -17,6 +17,10 @@ const BookSchema = new Schema({
   description: {
     type: String,
     required: true,
+  },
+  text: {
+    type: String,
+    required: true,
   }
 });
 
