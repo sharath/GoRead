@@ -7,7 +7,7 @@ db.users.insert([
         username: 'goread',
         password: 'password',
         settings: {
-            fontSize: 10,
+            fontSize: 12,
             viewMode: 'Day'
         }
     }
