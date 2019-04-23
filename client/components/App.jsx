@@ -43,18 +43,17 @@ class App extends React.Component {
             username: username,
             password: password
         }).then(res => {
-            if(res.data.message === 'successful') {
+            if (res.data.message === 'successful') {
                 console.log("success")
                 this.setState({
                     username: username
                 });
             } else {
-                console.log('Invalid Credentials');
+                console.log('Error');
             }
         }).catch(err => {
             console.log(err);
         })
-     //   console.log(username, password);
     }
 
     logout() {
