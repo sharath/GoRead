@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const Settings = new Schema({
+const SettingsSchema = new Schema({
   fontSize: {
     type: Number,
     default: 12,
@@ -24,9 +24,15 @@ const UserSchema = new Schema({
     required: true,
   },
   settings: {
-    type: Settings,
+    type: SettingsSchema,
     required: true,
   }
 });
 
-module.exports = User = mongoose.model('user', UserSchema);
+var UserInfo = mongoose.model('user', UserSchema);
+var Settings = mongoose.model('settings', SettingsSchema);
+
+module.exports = User = {
+  UserInfo: UserInfo,
+  Settings: Settings
+};
