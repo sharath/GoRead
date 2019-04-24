@@ -29,10 +29,7 @@ const UserSchema = new Schema({
   }
 });
 
-var UserInfo = mongoose.model('user', UserSchema);
-var Settings = mongoose.model('settings', SettingsSchema);
-
 module.exports = User = {
-  UserInfo: UserInfo,
-  Settings: Settings
+  UserInfo: mongoose.model('user', UserSchema),
+  Settings: mongoose.model('settings', SettingsSchema)
 };
