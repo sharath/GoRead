@@ -49,7 +49,7 @@ class App extends React.Component {
                     username: username
                 });
             } else {
-                console.log('Error');
+                console.log('Database Error');
             }
         }).catch(err => {
             console.log(err);
