@@ -1,12 +1,12 @@
 const express = require('express')
 const router = express.Router();
 
-const User = require('../../models/User');
+const User = require('../../models/User').UserInfo;
 
 router.get('/:ruser', (req, res) => {
     let ruser = req.params.ruser;
 
-    User.UserInfo.findOne({ username: ruser })
+    User.findOne({ username: ruser })
         .then((user) => {
             if (user.username === ruser) {
                 res.json({
@@ -22,7 +22,7 @@ router.post('/:ruser', (req, res) => {
     let rfontSize = req.body['font-size'];
     let rviewMode = req.body['view-mode'];
 
-    User.UserInfo.findOneAndUpdate({ username: ruser },
+    User.findOneAndUpdate({ username: ruser },
         { settings: { fontSize: rfontSize, viewMode: rviewMode}},
         (err, user) => {
             if(err) {
@@ -30,7 +30,7 @@ router.post('/:ruser', (req, res) => {
             }
     });
 
-    User.UserInfo.findOne({ username: ruser })
+    User.findOne({ username: ruser })
         .then((user) => {
             if(user.username === ruser && user.settings.fontSize === rfontSize &&  user.settings.viewMode === rviewMode) { 
                 return res.json({ message: 'success' }) 
