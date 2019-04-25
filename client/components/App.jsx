@@ -79,6 +79,7 @@ class App extends React.Component {
                 <Route path="/" exact component={BookShelf} />
                 <Route path="/shelf" component={BookShelf} />
                 <Route path="/login" component={BookShelf} />
+                <Route path="/register" component={BookShelf} />
                 <Route path="/settings" component={() => <Settings update_settings={this.update_settings.bind(this)} username={this.state.username} settings={this.state.settings} />} />
                 <Route path="/reader/:id" component={Reader} />
                 <Route component={NoMatch} />
