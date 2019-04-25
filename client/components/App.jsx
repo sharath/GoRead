@@ -39,21 +39,7 @@ class App extends React.Component {
     }
 
     register(username, password) {
-        axios.post('/api/register', {
-            username: username,
-            password: password
-        }).then(res => {
-            if (res.data.message === 'successful') {
-                console.log("success")
-                this.setState({
-                    username: username
-                });
-            } else {
-                console.log('Database Error');
-            }
-        }).catch(err => {
-            console.log(err);
-        })
+        console.log(username, password);
     }
 
     logout() {
@@ -79,7 +65,6 @@ class App extends React.Component {
                 <Route path="/" exact component={BookShelf} />
                 <Route path="/shelf" component={BookShelf} />
                 <Route path="/login" component={BookShelf} />
-                <Route path="/register" component={BookShelf} />
                 <Route path="/settings" component={() => <Settings update_settings={this.update_settings.bind(this)} username={this.state.username} settings={this.state.settings} />} />
                 <Route path="/reader/:id" component={Reader} />
                 <Route component={NoMatch} />
@@ -97,5 +82,13 @@ class App extends React.Component {
         );
     }
 }
+
+// Class DateComponent extends React.Component{
+//  render(){
+  //  return(
+    //  <h2>{this.props.match.params.date}</h2>
+  //  )
+//  }
+// }
 
 export default App;
