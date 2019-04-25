@@ -1,6 +1,6 @@
 # GoRead
 
-GoRead is a book reader application built using the MERN (MongoDB, Express, React, NodeJS) stack.
+GoRead is a book reader application built using the MERN (MongoDB, Express, React, NodeJS) stack for CS326: Web Programming at UMass Amherst.
 
 # Team Members
 * Sharath Ramkumar
