@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Container, Media } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export class BookShelf extends React.Component {
     constructor(props) {
@@ -27,7 +28,7 @@ export class BookShelf extends React.Component {
                                 <Media as="li">
                                     <img width={64} className="mr-3" src={book.cover} />
                                     <Media.Body>
-                                        <h5>{book.title}</h5>
+                                        <Link to={'/reader/'+book._id+'/'}>{book.title}</Link>
                                         <p>{book.description}</p>
                                     </Media.Body>
                                 </Media>

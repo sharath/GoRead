@@ -20,7 +20,8 @@ export class Reader extends React.Component {
         return (
             <Container>
                 {this.state.text}
-            </Container>);
+            </Container>
+        );
     }
 
 }

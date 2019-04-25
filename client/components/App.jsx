@@ -83,12 +83,4 @@ class App extends React.Component {
     }
 }
 
-// Class DateComponent extends React.Component{
-//  render(){
-  //  return(
-    //  <h2>{this.props.match.params.date}</h2>
-  //  )
-//  }
-// }
-
 export default App;
